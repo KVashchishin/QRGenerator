@@ -37,11 +37,6 @@ namespace QrGenerator.Controllers
             }
         }
 
-        public ActionResult Index()
-        {
-            return Redirect("www.google.com");
-        }
-
         //Додає QR у pdf документ
         [HttpPost("pdf")]
         public ActionResult<object> AddQRToPDF([FromBody] DocumentQR pdf)
@@ -75,9 +70,9 @@ namespace QrGenerator.Controllers
 
                         var size = reader.GetPageSize(reader.NumberOfPages);
 
-                        img.SetAbsolutePosition(0, size.Height - 50);
-                        img.ScaleAbsoluteHeight(50);
-                        img.ScaleAbsoluteWidth(50);
+                        img.SetAbsolutePosition(size.Width - 50, 20);
+                        img.ScaleAbsoluteHeight(35);
+                        img.ScaleAbsoluteWidth(35);
 
                         pdfContent.AddImage(img);
                     }
@@ -93,9 +88,9 @@ namespace QrGenerator.Controllers
 
                         var size = reader.GetPageSize(reader.NumberOfPages);
 
-                        img.SetAbsolutePosition(0, size.Height - 50);
-                        img.ScaleAbsoluteHeight(50);
-                        img.ScaleAbsoluteWidth(50);
+                        img.SetAbsolutePosition(size.Width - 50, 20);
+                        img.ScaleAbsoluteHeight(35);
+                        img.ScaleAbsoluteWidth(35);
 
                         pdfContent.AddImage(img);
                     }
@@ -113,9 +108,9 @@ namespace QrGenerator.Controllers
 
                             var size = reader.GetPageSize(reader.NumberOfPages);
 
-                            img.SetAbsolutePosition(size.Width - 55, 5);
-                            img.ScaleAbsoluteHeight(40);
-                            img.ScaleAbsoluteWidth(40);
+                            img.SetAbsolutePosition(size.Width - 50, 20);
+                            img.ScaleAbsoluteHeight(35);
+                            img.ScaleAbsoluteWidth(35);
 
                             pdfContent.AddImage(img);
 
